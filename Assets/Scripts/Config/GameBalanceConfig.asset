@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb3400ef0c6bff4f927e3d3514954ae, type: 3}
+  m_Name: GameBalanceConfig
+  m_EditorClassIdentifier: 
+  startGold: 0
+  targetGold: 274296530
+  passiveGoldPerSecond: 100
+  quoteTimeoutSec: 15
+  requireApiConfigBeforeStart: 1
+  useFallbackWhenLLMFail: 1
+  assetTiers:
+  - tierName: First Gold
+    requiredAsset: 100
+    milestoneText: "\"Congratulations! You can now afford a used e-bike\u2014at least
+      you won't have to walk to your next deal.\""
+  - tierName: Monthly Salary
+    requiredAsset: 5000
+    milestoneText: '"Equivalent to a white-collar worker''s monthly pay. Except you
+      probably earned this in 5 seconds."'
+  - tierName: Middle Class
+    requiredAsset: 50000
+    milestoneText: '"A year''s savings for a middle-class family. Or enough to buy
+      loyalty from an entire Stone Age tribe."'
+  - tierName: Luxury Entry
+    requiredAsset: 300000
+    milestoneText: "\"You can now buy a BMW 3 Series or Audi A4\u2014in cash. No
+      financing needed.\""
+  - tierName: Patek Philippe
+    requiredAsset: 800000
+    milestoneText: "\"Not just any watch\u2014a Patek Philippe Nautilus. Time is
+      literally on your wrist now.\""
+  - tierName: Yacht Life
+    requiredAsset: 5000000
+    milestoneText: '"5M Gold gets you a 35-foot pre-owned yacht. Don''t ask how far
+      it can go. Ask where you''ll park it."'
+  - tierName: Eight Figures
+    requiredAsset: 10000000
+    milestoneText: '"10 Million Gold! Remember when Wang Jianlin said ''set a small
+      target of 100 million''? You''re 10% there. Well done."'
+  - tierName: Gulfstream Ready
+    requiredAsset: 50000000
+    milestoneText: "\"Gulfstream G280\u2014a real business jet. Now you can do Stone
+      Age deals in the morning and Tech Era deals by lunch.\""
+  - tierName: Billionaire
+    requiredAsset: 100000000
+    milestoneText: '"One Billion Gold! Your wealth now rivals the GDP of a small
+      country. Ever thought about running for office?"'
+  - tierName: Elon Musk
+    requiredAsset: 200000000
+    milestoneText: "\"You've surpassed Elon Musk! You're no longer just the world's
+      richest person\u2014you're the wealthiest being across all timelines.\""
