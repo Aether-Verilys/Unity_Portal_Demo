@@ -15,6 +15,6 @@ MonoBehaviour:
   baseUrl: https://api.deepseek.com
   apiPath: v1/chat/completions
   modelName: deepseek-chat
-  apiKey: sk-fc3085c4baec4107b8ead48523ee8b68
+  apiKey: sk-7ff53ca7c4ba482cb796ddfeba1b1114
   useHttps: 1
   isConfigured: 0

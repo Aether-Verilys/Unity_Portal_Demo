@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool inputEnabled = true;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -20,14 +21,42 @@ namespace StarterAssets
 		public bool cursorLocked = true;
 		public bool cursorInputForLook = true;
 
+		private PlayerType _playerType;
+
+		private void Awake()
+		{
+			TryGetComponent(out _playerType);
+		}
+
+		private void Update()
+		{
+			if (!IsGameplayInputAllowed())
+			{
+				MoveInput(Vector2.zero);
+				LookInput(Vector2.zero);
+				JumpInput(false);
+				SprintInput(false);
+			}
+		}
+
 #if ENABLE_INPUT_SYSTEM
 		public void OnMove(InputValue value)
 		{
+			if (!IsGameplayInputAllowed())
+			{
+				return;
+			}
+
 			MoveInput(value.Get<Vector2>());
 		}
 
 		public void OnLook(InputValue value)
 		{
+			if (!IsGameplayInputAllowed())
+			{
+				return;
+			}
+
 			if(cursorInputForLook)
 			{
 				LookInput(value.Get<Vector2>());
@@ -36,11 +65,21 @@ namespace StarterAssets
 
 		public void OnJump(InputValue value)
 		{
+			if (!IsGameplayInputAllowed())
+			{
+				return;
+			}
+
 			JumpInput(value.isPressed);
 		}
 
 		public void OnSprint(InputValue value)
 		{
+			if (!IsGameplayInputAllowed())
+			{
+				return;
+			}
+
 			SprintInput(value.isPressed);
 		}
 #endif
@@ -64,6 +103,24 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+		}
+
+		public void SetInputEnabled(bool newState)
+		{
+			inputEnabled = newState;
+
+			if (!inputEnabled)
+			{
+				MoveInput(Vector2.zero);
+				LookInput(Vector2.zero);
+				JumpInput(false);
+				SprintInput(false);
+			}
+		}
+
+		private bool IsGameplayInputAllowed()
+		{
+			return inputEnabled && (_playerType == null || !_playerType.HasFocusedInputField());
 		}
 
 		private void OnApplicationFocus(bool hasFocus)
